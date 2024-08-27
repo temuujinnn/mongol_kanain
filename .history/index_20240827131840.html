@@ -170,11 +170,28 @@
                     автомашины
                     сэлбэг эд ангиийг
                     нийлүүлдэг.</p>
-                <a href="./brand_page.html" class="button">Бүх брэндүүдийг харах</a>
+                <a href="#" class="button">Бүх брэндүүдийг харах</a>
             </div>
             <div class="brand-logos">
                 
-              
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
             </div>
         </div>
     </section>
@@ -253,7 +270,79 @@
 
 </html>
 <script>
-      const Partbrands = [
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburger = document.querySelector('.hamburger');
+        const sidebar = document.querySelector('.sidebar');
+
+
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            sidebar.classList.toggle('active');
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const fadeInElements = document.querySelectorAll('.fade-in');
+
+        function handleScroll() {
+            fadeInElements.forEach(function (element) {
+                const rect = element.getBoundingClientRect();
+                const elementTop = rect.top;
+                const elementBottom = rect.bottom;
+
+                // Check if the element is within the viewport
+                if (elementTop < window.innerHeight && elementBottom >= 0) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Initial check on page load
+        handleScroll();
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuLinks = document.querySelectorAll('nav ul li a, .contact-btn');
+
+        menuLinks.forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+
+                const sidebar = document.querySelector('.sidebar');
+                const hamburger = document.querySelector('.hamburger');
+
+                if (sidebar && sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    const generatePartBrandsHTML = (Partbrands) => {
+            let htmlContent = '';
+
+            Partbrands.forEach((brand, index) => {
+                htmlContent += `
+            <div class="brand-logos" >
+                <a href="${brand.link}" target="_blank" rel="noreferrer">
+                    <img src="${brand.image}" alt="img" />
+                </a>
+            </div>
+        `;
+            });
+
+            return htmlContent;
+        };
+
+        // Example usage:
+       const mybrand = [
             {
                 image:
                     "https://static.wixstatic.com/media/5ea728_55e7c3a1850147a8b5d1985f4f3cd625~mv2.png/v1/fill/w_374,h_374,q_90/5ea728_55e7c3a1850147a8b5d1985f4f3cd625~mv2.webp",
@@ -422,96 +511,6 @@
                 title: "yuasa",
             },
         ];
-    
 
-
-        const generatePartBrandsHTML = (Partbrands) => {
-            let htmlContent = '';
-
-            Partbrands.forEach((brand) => {
-                htmlContent += `
-                    <div class="brand-logo" >
-                        <a href="${brand.link}" target="_blank" rel="noreferrer">
-                            <img src="${brand.image}" alt="img" />
-                        </a>
-                    </div>
-                `;
-            });
-
-            return htmlContent;
-        };
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Other existing scripts...
-
-            // Inject generated part brands HTML into the page
-            const brandLogosContainer = document.querySelector('.brand-logos');
-            if (brandLogosContainer) {
-                brandLogosContainer.innerHTML = generatePartBrandsHTML(Partbrands);
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburger = document.querySelector('.hamburger');
-            const sidebar = document.querySelector('.sidebar');
-
-            hamburger.addEventListener('click', function () {
-                hamburger.classList.toggle('active');
-                sidebar.classList.toggle('active');
-            });
-        });
-    document.addEventListener('DOMContentLoaded', function () {
-        const hamburger = document.querySelector('.hamburger');
-        const sidebar = document.querySelector('.sidebar');
-
-        hamburger.addEventListener('click', function () {
-            hamburger.classList.toggle('active');
-            sidebar.classList.toggle('active');
-        });
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-        const fadeInElements = document.querySelectorAll('.fade-in');
-
-        function handleScroll() {
-            fadeInElements.forEach(function (element) {
-                const rect = element.getBoundingClientRect();
-                const elementTop = rect.top;
-                const elementBottom = rect.bottom;
-
-                // Check if the element is within the viewport
-                if (elementTop < window.innerHeight && elementBottom >= 0) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', handleScroll);
-
-        // Initial check on page load
-        handleScroll();
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-        const menuLinks = document.querySelectorAll('nav ul li a, .contact-btn');
-
-        menuLinks.forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-
-                const sidebar = document.querySelector('.sidebar');
-                const hamburger = document.querySelector('.hamburger');
-
-                if (sidebar && sidebar.classList.contains('active')) {
-                    sidebar.classList.remove('active');
-                    hamburger.classList.remove('active');
-                }
-            });
-        });
-    });
-    
+        const htmlOutput = generatePartBrandsHTML(mybrand);});
 </script>

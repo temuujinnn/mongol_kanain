@@ -1,0 +1,19 @@
+.pagebrandcontainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    flex-direction: column;
+
+}
+.pagebrand-logos{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.pagebrand-logos img{
+    width: 120px;
+    height: 100px;
+    margin: 10px;
+}

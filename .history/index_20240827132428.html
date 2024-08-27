@@ -170,11 +170,28 @@
                     автомашины
                     сэлбэг эд ангиийг
                     нийлүүлдэг.</p>
-                <a href="./brand_page.html" class="button">Бүх брэндүүдийг харах</a>
+                <a href="#" class="button">Бүх брэндүүдийг харах</a>
             </div>
             <div class="brand-logos">
                 
-              
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
+                <div class="brand-logo">
+                    <img src="./images/part_brand.png" alt="AVA Quality Cooling">
+                </div>
             </div>
         </div>
     </section>
@@ -253,7 +270,7 @@
 
 </html>
 <script>
-      const Partbrands = [
+      const mybrand = [
             {
                 image:
                     "https://static.wixstatic.com/media/5ea728_55e7c3a1850147a8b5d1985f4f3cd625~mv2.png/v1/fill/w_374,h_374,q_90/5ea728_55e7c3a1850147a8b5d1985f4f3cd625~mv2.webp",
@@ -425,12 +442,12 @@
     
 
 
-        const generatePartBrandsHTML = (Partbrands) => {
+        const generatePartBrandsHTML = (mybrand) => {
             let htmlContent = '';
 
             Partbrands.forEach((brand) => {
                 htmlContent += `
-                    <div class="brand-logo" >
+                    <div class="innerContainer" data-aos="fade" data-aos-duration="2000" data-aos-delay="000">
                         <a href="${brand.link}" target="_blank" rel="noreferrer">
                             <img src="${brand.image}" alt="img" />
                         </a>

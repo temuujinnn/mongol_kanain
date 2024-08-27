@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Page</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./brand_page.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="./images/pavicon.svg" style="width: 40px; height: 40px;" alt="Calendar Icon">
+                <h1 style="margin-left: 5px;">Mongol Kanain</h1>
+    
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html">About</a></li>
+                    <li><a href="./index.html">Services</a></li>
+                    <li><a href="./index.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="contact-btn">Contact us</a>
+            <button class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+        </div>
+    </header>
+    
+    <div class="sidebar">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html">About</a></li>
+            <li><a href="./index.html">Services</a></li>
+            <li><a href="./index.html">Contact</a></li>
+        </ul>
+        <a href="#contact" class="contact-btn">Бидэнтэй холбогдохs</a>
+    </div>
+
+   
+<section id="brands" class="fade-in">
+    <div class="brandcontainer">
+
+        <div class="content">
+            <div style=" width: 80px; height: 4px; background-color: #ffcc00; margin-bottom: 12px;"></div>
+            <h2>СЭЛБЭГ БРЭНДҮҮД</h2>
+            <p class="branddescription">
+                Бид дэлхийд тэргүүлэгч брэндүүдээс таны хэрэгцээ шаардлагад нийцсэн
+                автомашины
+                сэлбэг эд ангиийг
+                нийлүүлдэг.</p>
+            <a href="./brand_page.html" class="button">Бүх брэндүүдийг харах</a>
+        </div>
+        <div class="brand-logos">
+
+
+        </div>
+    </div>
+</section>
+    <section id="contact" class="fade-in">
+        <div class="contactcontainer">
+            <div class="contact-form">
+    
+                <h2>Бидэнтэй холбогдох</h2>
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="Нэр" required>
+                    <input type="text" name="phone" placeholder="Утас" required>
+                    <input type="text" name="phone2" placeholder="И-мэйл">
+                    <button type="submit">Хүсэлт илгээх</button>
+                </form>
+                <p class="privacy">Privacy</p>
+            </div>
+            <div class="contact-details">
+                <h3>Холбоо барих</h3>
+                <p>+965 99505251<br>
+                    info@mongolkainain.mn<br>
+                    MN Tower, Улаанбаатар, Монгол</p>
+                <div class="sizedbox"></div>
+                <div class="social-icons">
+                    <a href="#"><img src="./icons/facebook.svg" alt="Facebook"></a>
+                    <a href="#"><img src="./icons/instagram.svg" alt="Instagram"></a>
+                    <a href="#"><img src="./icons/youtube.svg" alt="YouTube"></a>
+                    <a href="#"><img src="./icons/twitter.svg" alt="Twitter"></a>
+                </div>
+                <p class="copyright">© 2024 — Copyright</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<script>
+      document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('.sidebar');
+
+            hamburger.addEventListener('click', function () {
+                hamburger.classList.toggle('active');
+                sidebar.classList.toggle('active');
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            const sidebar = document.querySelector('.sidebar');
+
+            hamburger.addEventListener('click', function () {
+                hamburger.classList.toggle('active');
+                sidebar.classList.toggle('active');
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+
+            function handleScroll() {
+                fadeInElements.forEach(function (element) {
+                    const rect = element.getBoundingClientRect();
+                    const elementTop = rect.top;
+                    const elementBottom = rect.bottom;
+
+                    // Check if the element is within the viewport
+                    if (elementTop < window.innerHeight && elementBottom >= 0) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll);
+
+            // Initial check on page load
+            handleScroll();
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuLinks = document.querySelectorAll('nav ul li a, .contact-btn');
+
+            menuLinks.forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+
+                    const sidebar = document.querySelector('.sidebar');
+                    const hamburger = document.querySelector('.hamburger');
+
+                    if (sidebar && sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            });
+        });
+</script>

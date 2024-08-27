@@ -565,7 +565,7 @@ header .contact-btn:hover {
     max-width: 50%;
 }
 .brand-logos img {
-    max-width: 120px;
+    max-width: 100%;
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease;
